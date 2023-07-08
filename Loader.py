@@ -32,7 +32,7 @@ time.sleep(3)
 
 # Delayed display of available tools
 tools = {
-    1: "ToolX"
+    1: "ZPhisher"
 }
 
 # Display the available tools
@@ -45,8 +45,8 @@ choice = input("Enter the number of the tool to run: ")
 
 # Check the user's choice and perform the corresponding action
 if choice.isdigit() and int(choice) in tools:
-    if tools[int(choice)] == "ToolX":
-        repository_url = "https://github.com/Rajkumrdusad/Tool-X.git"
+    if tools[int(choice)] == "ZPhisher":
+        repository_url = "https://github.com/htr-tech/zphisher.git"
         git_clone(repository_url)
 else:
     print("Invalid choice!")
