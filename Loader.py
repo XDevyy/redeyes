@@ -4,12 +4,13 @@ import string
 import os
 import subprocess
 
-def git_clone(url):
+def run_zphisher():
     try:
-        subprocess.run(["git", "clone", url])
-        print("Clone successful!")
+        subprocess.run(["cd", "zphisher"])
+        subprocess.run(["bash", "zphisher.sh"])
+        print("Zphisher executed successfully!")
     except subprocess.CalledProcessError as e:
-        print("Clone failed:", e)
+        print("Zphisher execution failed:", e)
 
 def generate_random_string(length):
     letters = string.ascii_lowercase
@@ -32,7 +33,7 @@ time.sleep(3)
 
 # Delayed display of available tools
 tools = {
-    1: "ZPhisher"
+    1: "Zphisher"
 }
 
 # Display the available tools
@@ -45,8 +46,7 @@ choice = input("Enter the number of the tool to run: ")
 
 # Check the user's choice and perform the corresponding action
 if choice.isdigit() and int(choice) in tools:
-    if tools[int(choice)] == "ZPhisher":
-        repository_url = "https://github.com/htr-tech/zphisher.git"
-        git_clone(repository_url)
+    if tools[int(choice)] == "Zphisher":
+        run_zphisher()
 else:
     print("Invalid choice!")
