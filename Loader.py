@@ -13,7 +13,7 @@ def git_clone(url):
 
 def run_zphisher():
     try:
-        subprocess.run(["cd", "zphisher"])
+        os.chdir("zphisher")
         subprocess.run(["bash", "zphisher.sh"])
         print("Zphisher executed successfully!")
     except subprocess.CalledProcessError as e:
