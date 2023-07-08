@@ -31,14 +31,18 @@ def generate_random_string(length):
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for _ in range(length))
 
-print("""
+red_color_code = "\033[91m"
+reset_color_code = "\033[0m"
+
+print(f"{red_color_code}"
+      """
   _____    ___         __  ____               
  / ___ \  / _ \___ ___/ / / __/_ _____ ___    
 / / _ `/ / , _/ -_) _  / / _// // / -_|_-<    
 \ \_,_/ /_/|_|\__/\_,_/ /___/\_, /\__/___/    
  \___/                      /___/             
               #developed by xeni
-""")
+""" f"{reset_color_code}")
 
 print("         <=======Loading=======>")
 time.sleep(4)
@@ -58,7 +62,7 @@ for key, value in tools.items():
     print(f"[{key}] {value}")
 
 # Prompt the user for input
-choice = input("\033[91m[RedEyes]\033[0m: ")
+choice = input(f"{red_color_code}[RedEyes]{reset_color_code} Enter the number of the tool to run: ")
 
 # Check the user's choice and perform the corresponding action
 if choice.isdigit() and int(choice) in tools:
