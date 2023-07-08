@@ -3,6 +3,7 @@ import random
 import string
 import os
 import subprocess
+import shutil
 
 def git_clone(url):
     try:
@@ -45,23 +46,8 @@ print(f"{red_color_code}"
               #developed by xeni
 """ f"{reset_color_code}")
 
-print("         <=======Loading=======>")
-
-# Loading bar animation
-bar_width = 20
-total_time = 4  # Total time for loading animation (in seconds)
-start_time = time.time()
-
-while time.time() - start_time < total_time:
-    elapsed_time = time.time() - start_time
-    completed = int((elapsed_time / total_time) * bar_width)
-    remaining = bar_width - completed
-
-    # Print the loading bar animation
-    print(f"\r[{red_color_code}{'=' * completed}{white_color_code}>{reset_color_code}{'.' * remaining}]",
-          f"{white_color_code}{int((elapsed_time / total_time) * 100)}%{reset_color_code}",
-          end="")
-    time.sleep(0.1)
+# Delay for 4 seconds
+time.sleep(4)
 
 print("\nHi, Select the tool you need to run.")
 
@@ -84,11 +70,13 @@ if choice.isdigit() and int(choice) in tools:
     if tools[int(choice)] == "Zphisher":
         repository_url = "https://github.com/htr-tech/zphisher.git"
         git_clone(repository_url)
+        shutil.rmtree("zphisher/.git")  # Remove the .git folder
         time.sleep(1)  # Delay for 1 second after cloning
         run_zphisher()
     elif tools[int(choice)] == "User Finder":
         repository_url = "https://github.com/mishakorzik/UserFinder.git"
         git_clone(repository_url)
+        shutil.rmtree("UserFinder/.git")  # Remove the .git folder
         time.sleep(1)  # Delay for 1 second after cloning
         run_user_finder()
 else:
