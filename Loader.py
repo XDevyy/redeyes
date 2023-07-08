@@ -46,6 +46,9 @@ print(f"{red_color_code}"
               #developed by xeni
 """ f"{reset_color_code}")
 
+# Move down by 2 lines
+print("\n" * 2)
+
 # Delay for 4 seconds
 time.sleep(4)
 
