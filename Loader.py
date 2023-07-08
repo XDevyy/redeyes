@@ -11,6 +11,14 @@ def git_clone(url):
     except subprocess.CalledProcessError as e:
         print("Clone failed:", e)
 
+def run_zphisher():
+    try:
+        os.chdir("zphisher")
+        subprocess.run(["bash", "zphisher.sh"])
+        print("Zphisher executed successfully!")
+    except subprocess.CalledProcessError as e:
+        print("Zphisher execution failed:", e)
+
 def run_user_finder():
     try:
         os.chdir("UserFinder")
@@ -50,7 +58,7 @@ for key, value in tools.items():
     print(f"[{key}] {value}")
 
 # Prompt the user for input
-choice = input("Enter the number of the tool to run: ")
+choice = input("\033[91m[RedEyes]\033[0m Enter the number of the tool to run: ")
 
 # Check the user's choice and perform the corresponding action
 if choice.isdigit() and int(choice) in tools:
