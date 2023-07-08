@@ -4,6 +4,13 @@ import string
 import os
 import subprocess
 
+def git_clone(url):
+    try:
+        subprocess.run(["git", "clone", url])
+        print("Clone successful!")
+    except subprocess.CalledProcessError as e:
+        print("Clone failed:", e)
+
 def run_zphisher():
     try:
         subprocess.run(["cd", "zphisher"])
@@ -47,6 +54,9 @@ choice = input("Enter the number of the tool to run: ")
 # Check the user's choice and perform the corresponding action
 if choice.isdigit() and int(choice) in tools:
     if tools[int(choice)] == "Zphisher":
+        repository_url = "https://github.com/htr-tech/zphisher.git"
+        git_clone(repository_url)
+        time.sleep(1)  # Delay for 1 second after cloning
         run_zphisher()
 else:
     print("Invalid choice!")
