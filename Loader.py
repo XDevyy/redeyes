@@ -58,7 +58,7 @@ for key, value in tools.items():
     print(f"[{key}] {value}")
 
 # Prompt the user for input
-choice = input("\033[91m[RedEyes]\033[0m Enter the number of the tool to run: ")
+choice = input("\033[91m[RedEyes]\033[0m: ")
 
 # Check the user's choice and perform the corresponding action
 if choice.isdigit() and int(choice) in tools:
