@@ -45,18 +45,36 @@ def generate_random_string(length):
 red_color_code = "\033[91m"
 reset_color_code = "\033[0m"
 
-print(f"{red_color_code}"
-      """
+# ASCII art
+ascii_art = f"""
+{red_color_code}
   _____    ___         __  ____               
  / ___ \  / _ \___ ___/ / / __/_ _____ ___    
 / / _ `/ / , _/ -_) _  / / _// // / -_|_-<    
 \ \_,_/ /_/|_|\__/\_,_/ /___/\_, /\__/___/    
  \___/                      /___/             
               #developed by xeni
-""" f"{reset_color_code}")
+{reset_color_code}
+"""
 
-print("         <======= 1.1.3 =======>")
-time.sleep(4)
+# Delayed display of ASCII art
+print(ascii_art)
+time.sleep(2)
+
+# Animated loading message
+loading_messages = [
+    "Loading...",
+    "Preparing the tools...",
+    "Setting up the environment...",
+    "Almost there...",
+    "Ready to go!"
+]
+
+for loading_message in loading_messages:
+    print(f"\r{red_color_code}{loading_message}{reset_color_code}", end="")
+    time.sleep(1)
+
+print("\n")
 
 # Delayed display of available tools
 tools = {
@@ -65,9 +83,9 @@ tools = {
 }
 
 # Display the available tools
-print("Available tools:")
+print(f"{red_color_code}Available tools:{reset_color_code}")
 for key, value in tools.items():
-    print(f"[{key}] {value}")
+    print(f"[{red_color_code}{key}{reset_color_code}] {value}")
 
 # Prompt the user for input
 choice = input(f"{red_color_code}[RedEyes]{reset_color_code} : ")
