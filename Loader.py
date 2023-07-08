@@ -65,9 +65,6 @@ time.sleep(2)
 loading_messages = [
     "Loading...",
     "Preparing the tools...",
-    "Setting up the environment...",
-    "Almost there...",
-    "Ready to go!"
 ]
 
 for loading_message in loading_messages:
