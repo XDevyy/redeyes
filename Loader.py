@@ -32,6 +32,7 @@ def generate_random_string(length):
     return ''.join(random.choice(letters) for _ in range(length))
 
 red_color_code = "\033[91m"
+white_color_code = "\033[97m"
 reset_color_code = "\033[0m"
 
 print(f"{red_color_code}"
@@ -45,10 +46,24 @@ print(f"{red_color_code}"
 """ f"{reset_color_code}")
 
 print("         <=======Loading=======>")
-time.sleep(4)
 
-print("Hi, Select the tool you need to run.")
-time.sleep(3)
+# Loading bar animation
+bar_width = 20
+total_time = 4  # Total time for loading animation (in seconds)
+start_time = time.time()
+
+while time.time() - start_time < total_time:
+    elapsed_time = time.time() - start_time
+    completed = int((elapsed_time / total_time) * bar_width)
+    remaining = bar_width - completed
+
+    # Print the loading bar animation
+    print(f"\r[{red_color_code}{'=' * completed}{white_color_code}>{reset_color_code}{'.' * remaining}]",
+          f"{white_color_code}{int((elapsed_time / total_time) * 100)}%{reset_color_code}",
+          end="")
+    time.sleep(0.1)
+
+print("\nHi, Select the tool you need to run.")
 
 # Delayed display of available tools
 tools = {
@@ -59,7 +74,7 @@ tools = {
 # Display the available tools
 print("Available tools:")
 for key, value in tools.items():
-    print(f"[{key}] {value}")
+    print(f"[{red_color_code}{key}{reset_color_code}] {value}")
 
 # Prompt the user for input
 choice = input(f"{red_color_code}[RedEyes]{reset_color_code} Enter the number of the tool to run: ")
