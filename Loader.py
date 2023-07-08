@@ -1,9 +1,20 @@
+import os
+
+# Clear console based on the operating system
+def clear_console():
+    os.system("cls" if os.name == "nt" else "clear")
+
+# Clear the console
+clear_console()
+
+# Import necessary modules
 import time
 import random
 import string
 import os
 import subprocess
 
+# Rest of the code
 def git_clone(url):
     try:
         subprocess.run(["git", "clone", url])
