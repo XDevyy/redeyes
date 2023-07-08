@@ -47,9 +47,6 @@ print(f"{red_color_code}"
 print("         <======= 1.1.3 =======>")
 time.sleep(4)
 
-print("Hi, Select the tool you need to run.")
-time.sleep(3)
-
 # Delayed display of available tools
 tools = {
     1: "Zphisher",
@@ -62,7 +59,7 @@ for key, value in tools.items():
     print(f"[{key}] {value}")
 
 # Prompt the user for input
-choice = input(f"{red_color_code}[RedEyes]{reset_color_code} Enter the number of the tool to run: ")
+choice = input(f"{red_color_code}[RedEyes]{reset_color_code} : ")
 
 # Check the user's choice and perform the corresponding action
 if choice.isdigit() and int(choice) in tools:
