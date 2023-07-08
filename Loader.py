@@ -11,13 +11,13 @@ def git_clone(url):
     except subprocess.CalledProcessError as e:
         print("Clone failed:", e)
 
-def run_zphisher():
+def run_user_finder():
     try:
-        os.chdir("zphisher")
-        subprocess.run(["bash", "zphisher.sh"])
-        print("Zphisher executed successfully!")
+        os.chdir("UserFinder")
+        subprocess.run(["bash", "UserFinder.sh"])
+        print("User Finder executed successfully!")
     except subprocess.CalledProcessError as e:
-        print("Zphisher execution failed:", e)
+        print("User Finder execution failed:", e)
 
 def generate_random_string(length):
     letters = string.ascii_lowercase
@@ -40,7 +40,8 @@ time.sleep(3)
 
 # Delayed display of available tools
 tools = {
-    1: "Zphisher"
+    1: "Zphisher",
+    2: "User Finder"
 }
 
 # Display the available tools
@@ -58,5 +59,10 @@ if choice.isdigit() and int(choice) in tools:
         git_clone(repository_url)
         time.sleep(1)  # Delay for 1 second after cloning
         run_zphisher()
+    elif tools[int(choice)] == "User Finder":
+        repository_url = "https://github.com/mishakorzik/UserFinder.git"
+        git_clone(repository_url)
+        time.sleep(1)  # Delay for 1 second after cloning
+        run_user_finder()
 else:
     print("Invalid choice!")
