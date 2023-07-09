@@ -38,6 +38,14 @@ def run_user_finder():
     except subprocess.CalledProcessError as e:
         print("User Finder execution failed:", e)
 
+def run_port_scanner():
+    try:
+        os.chdir("PortScan")
+        subprocess.run(["python3", "PortScan.py"])
+        print("Port Scanner executed successfully!")
+    except subprocess.CalledProcessError as e:
+        print("Port Scanner execution failed:", e)
+
 def generate_random_string(length):
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for _ in range(length))
@@ -65,6 +73,9 @@ time.sleep(2)
 loading_messages = [
     "Loading...",
     "Preparing the tools...",
+    "Setting up the environment...",
+    "Almost there...",
+    "Ready to go!"
 ]
 
 for loading_message in loading_messages:
@@ -76,7 +87,8 @@ print("\n")
 # Delayed display of available tools
 tools = {
     1: "Zphisher",
-    2: "User Finder"
+    2: "User Finder",
+    3: "Port Scanner"
 }
 
 # Display the available tools
@@ -99,5 +111,10 @@ if choice.isdigit() and int(choice) in tools:
         git_clone(repository_url)
         time.sleep(1)  # Delay for 1 second after cloning
         run_user_finder()
+    elif tools[int(choice)] == "Port Scanner":
+        repository_url = "https://github.com/XDevyy/PortScan.git"
+        git_clone(repository_url)
+        time.sleep(1)  # Delay for 1 second after cloning
+        run_port_scanner()
 else:
     print("Invalid choice!")
