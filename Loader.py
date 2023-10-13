@@ -85,7 +85,8 @@ print("\n")
 tools = {
     1: "Zphisher",
     2: "User Finder",
-    3: "Port Scanner"
+    3: "Port Scanner",
+    4: "SlowLoris"
 }
 
 # Display the available tools
@@ -110,6 +111,11 @@ if choice.isdigit() and int(choice) in tools:
         run_user_finder()
     elif tools[int(choice)] == "Port Scanner":
         repository_url = "https://github.com/XDevyy/PortScan.git"
+        git_clone(repository_url)
+        time.sleep(1)  # Delay for 1 second after cloning
+        run_port_scanner()
+    elif tools[int(choice)] == "SlowLoris":
+        repository_url = "https://github.com/gkbrk/slowloris"
         git_clone(repository_url)
         time.sleep(1)  # Delay for 1 second after cloning
         run_port_scanner()
