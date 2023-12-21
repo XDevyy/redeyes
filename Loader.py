@@ -61,7 +61,7 @@ ascii_art = f"""
 / / _ `/ / , _/ -_) _  / / _// // / -_|_-<    
 \ \_,_/ /_/|_|\__/\_,_/ /___/\_, /\__/___/    
  \___/                      /___/             
-              #developed by x8x0
+              #developed by xenidev
 {reset_color_code}
 """
 
