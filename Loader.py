@@ -45,6 +45,14 @@ def run_port_scanner():
         print("Port Scanner executed successfully!")
     except subprocess.CalledProcessError as e:
         print("Port Scanner execution failed:", e)
+def DirOrg():
+    try:
+        os.chdir("DirOrganizer")
+        subprocess.run(["python", "Organizer-v2.py"])
+        print("Organizer executed successfully!")
+    except subprocess.CalledProcessError as e:
+        print("Organizer execution failed:", e)
+
 
 def generate_random_string(length):
     letters = string.ascii_lowercase
@@ -62,13 +70,13 @@ ascii_art = f"""
 \ \_,_/ /_/|_|\__/\_,_/ /___/\_, /\__/___/    
  \___/                      /___/             
               #developed by xenidev
-                [OUTDATED TOOL]
+                [b2.0 dev ver]
 {reset_color_code}
 """
 
 # Delayed display of ASCII art
 print(ascii_art)
-time.sleep(2)
+time.sleep(1)
 
 # Animated loading message
 loading_messages = [
@@ -87,7 +95,8 @@ tools = {
     1: "Zphisher",
     2: "User Finder",
     3: "Port Scanner",
-    4: "SlowLoris"
+    4: "SlowLoris",
+    5: "DirOrganizer"
 }
 
 # Display the available tools
@@ -120,5 +129,10 @@ if choice.isdigit() and int(choice) in tools:
         git_clone(repository_url)
         time.sleep(1)  # Delay for 1 second after cloning
         run_port_scanner()
+    elif tools[int(choice)] == "DirOrganizer":
+        repository_url = "https://github.com/XDevyy/DirOrganizer"
+        git_clone(repository_url)
+        time.sleep(1)  # Delay for 1 second after cloning
+        DirOrg()
 else:
     print("Invalid choice!")
